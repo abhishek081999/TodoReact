@@ -1,10 +1,8 @@
 
 import { useState } from "react";
-function Todo({todoData, isFinished,changeFinished, onDelete ,onEdit}) {
+function Todo({todoData, isFinished,changeFinished}) {
     
-const [finished,setFinished]= useState(isFinished);
-const [isEditting, setIsEditting] = useState(false);
-const [editText, setEditText] = useState(todoData);
+const [finished,setFinished]= useState(isFinished)
     return(
 
    
@@ -15,12 +13,9 @@ const [editText, setEditText] = useState(todoData);
             }}
                 
              />
-            {(isEditting)? <input type="text" value={editText} onChange={e=> setEditText(e.target.value)}/>:<span>{todoData}</span> }
-             <button onClick={()=> {
-                setIsEditting(!isEditting);
-                onEdit(editText);
-                }}>{(!isEditting)?'Edit': 'Save'}</button>
-             <button onClick={onDelete}>Delete</button>
+             {todoData}
+             <button>Edit</button>
+             <button>Delete</button>
         </div>  
   
        
